@@ -196,7 +196,7 @@ async def main():
                 positions = [states.states[i].position_um for i in range(9)]
                 print(f"Motor positions (um): {positions}")
 
-        # TODO: pose control logic
+        # pose control logic
         target_pose = x.pose
         last_update_instant = time.perf_counter()
         while True:

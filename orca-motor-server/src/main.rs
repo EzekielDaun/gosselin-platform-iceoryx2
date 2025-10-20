@@ -105,6 +105,23 @@ async fn main() -> anyhow::Result<()> {
                             motor.set_mode(orca_rs::register_map::OrcaModeOfOperation::SleepMode)
                         }))
                         .await?;
+                        println!("Motors auto-zeroing...");
+                        try_join_all(new_motors.iter_mut().map(|motor| {
+                            motor.auto_zero(
+                                50,
+                                orca_rs::register_map::OrcaAutoZeroExitMode::SleepMode,
+                                10,
+                                true,
+                            )
+                        }))
+                        .await?;
+                        println!("Motors auto-zeroed.");
+                        try_join_all(
+                            new_motors
+                                .iter_mut()
+                                .map(|motor| motor.tune_pid(800, 200, 100, 500, 300_000)),
+                        )
+                        .await?;
                         try_join_all(
                             new_motors
                                 .iter_mut()
@@ -120,7 +137,6 @@ async fn main() -> anyhow::Result<()> {
                     (true, Some(_)) => {
                         position_record = None;
                         active_request.loan_uninit()?.write_payload(true).send()?;
-
                         println!("Motors were already connected.");
                     }
                     (false, None) => {

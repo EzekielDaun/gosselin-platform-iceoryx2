@@ -188,7 +188,7 @@ async def main():
                 positions = [states.states[i].position_um for i in range(9)]
                 print(f"Motor positions (um): {positions}")
 
-        # TODO: twist control logic
+        # twist control logic
         last_update_instant = time.perf_counter()
         while True:
             maybe_twist = None

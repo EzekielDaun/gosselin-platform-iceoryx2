@@ -959,7 +959,7 @@ dependencies = [
 [[package]]
 name = "orca-rs"
 version = "0.1.2"
-source = "git+https://github.com/EzekielDaun/orca-rs.git#89655f2ddb825ea332f6308b869b89346250a39a"
+source = "git+https://github.com/EzekielDaun/orca-rs.git#99b56a6305143be39835d109821872e10cfd83d6"
 dependencies = [
  "anyhow",
  "binrw",
