@@ -1,0 +1,16 @@
+[workspace]
+    authors   = ["Yifei Liu <34564223+EzekielDaun@users.noreply.github.com>"]
+    channels  = ["conda-forge"]
+    name      = "gosselin-platform-iceoryx2"
+    platforms = ["linux-64", "linux-aarch64", "osx-arm64", "win-64"]
+    version   = "0.1.0"
+
+[tasks]
+
+[dependencies]
+    python = ">=3.10.0,<3.15"
+    rust   = ">=1.90.0,<1.91"
+
+[pypi-dependencies]
+    gosselin-platform = { git = "https://github.com/UBC-ARL/gosselin-platform.git" }
+    iceoryx2          = ">=0.7.0, <0.8"

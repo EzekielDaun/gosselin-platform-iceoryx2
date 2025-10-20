@@ -1,0 +1,12 @@
+baudrate = 115200
+motor = [
+    "/dev/tty.usbserial-FT878BFG", # A1/A4
+    "/dev/tty.usbserial-FT8ESWCO", # A2/A5
+    "/dev/tty.usbserial-FT8F0YKB", # A3/A6
+    "/dev/tty.usbserial-FTU7JPNF", # A11
+    "/dev/tty.usbserial-FTU7JOOC", # A21
+    "/dev/tty.usbserial-FT8EQ4MF", # A31
+    "/dev/tty.usbserial-FT8F11PO", # A12
+    "/dev/tty.usbserial-FT8F0SER", # A22
+    "/dev/tty.usbserial-FT878A04"  # A32
+]
