@@ -37,15 +37,13 @@ Run each component in its own terminal (each with `pixi shell` active):
 1. ORCA Motor Server
 
 ```bash
-cd orca-motor-server
-cargo run --release
+pixi run orca-motor-server
 ```
 
 2. Gamepad Twist/Pose Publisher
 
 ```bash
-cd gamepad-twist-publisher
-cargo run --release
+pixi run gamepad-twist-publisher
 ```
 
 3. Kinematics Controller (choose one)
@@ -53,13 +51,19 @@ cargo run --release
 Twist controller:
 
 ```bash
-python gp_kin_twist.py
+pixi run gp-kin-twist
 ```
 
 Pose controller:
 
 ```bash
-python gp_kin_pose.py
+pixi run gp-kin-pose
+```
+
+MuJoCo simulation with twist controller (runs in the `mujoco-sim` environment):
+
+```bash
+pixi run -e mujoco-sim gp-kin-twist-mujoco-sim
 ```
 
 Leave the server and publisher running; start/stop the controller as needed.
