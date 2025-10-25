@@ -41,7 +41,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/78/b6/6307fbef88d9b5ee7421e68d78a9f162e0da4900bc5f5793f6d3d0e34fb8/annotated_types-0.7.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/55/e2/2537ebcff11c1ee1ff17d8d0b6f4db75873e3b0fb32c2d4a2ee31ecb310a/docstring_parser-0.17.0-py3-none-any.whl
       - pypi: git+https://github.com/EzekielDaun/General-Manipulator-Kinematics.git#2496df845ab5fa27aefbfcf229cf14d8339befb7
-      - pypi: git+https://github.com/UBC-ARL/gosselin-platform.git#90bef045a0a4f808654118ef716952b32c201596
+      - pypi: git+https://github.com/UBC-ARL/gosselin-platform.git#971e674205cddf2a4002f5bee4c62e79484f1562
       - pypi: https://files.pythonhosted.org/packages/58/04/8d47d10c749bd75010562bf6b09a16a02267af0c23d42ddf0f114ba1f3ef/iceoryx2-0.7.0.tar.gz
       - pypi: https://files.pythonhosted.org/packages/b3/77/4e6c9a54247810eff8ac8a1af7dc1be0779b52df0d82f3fc8586061914f3/jax-0.8.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/4d/40/36322e9ba8466c1708cfe274917f447447edbcd8bc498ab97e1bfa80d3fe/jax_dataclasses-1.6.2-py3-none-any.whl
@@ -99,7 +99,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/78/b6/6307fbef88d9b5ee7421e68d78a9f162e0da4900bc5f5793f6d3d0e34fb8/annotated_types-0.7.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/55/e2/2537ebcff11c1ee1ff17d8d0b6f4db75873e3b0fb32c2d4a2ee31ecb310a/docstring_parser-0.17.0-py3-none-any.whl
       - pypi: git+https://github.com/EzekielDaun/General-Manipulator-Kinematics.git#2496df845ab5fa27aefbfcf229cf14d8339befb7
-      - pypi: git+https://github.com/UBC-ARL/gosselin-platform.git#90bef045a0a4f808654118ef716952b32c201596
+      - pypi: git+https://github.com/UBC-ARL/gosselin-platform.git#971e674205cddf2a4002f5bee4c62e79484f1562
       - pypi: https://files.pythonhosted.org/packages/58/04/8d47d10c749bd75010562bf6b09a16a02267af0c23d42ddf0f114ba1f3ef/iceoryx2-0.7.0.tar.gz
       - pypi: https://files.pythonhosted.org/packages/b3/77/4e6c9a54247810eff8ac8a1af7dc1be0779b52df0d82f3fc8586061914f3/jax-0.8.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/4d/40/36322e9ba8466c1708cfe274917f447447edbcd8bc498ab97e1bfa80d3fe/jax_dataclasses-1.6.2-py3-none-any.whl
@@ -145,7 +145,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/78/b6/6307fbef88d9b5ee7421e68d78a9f162e0da4900bc5f5793f6d3d0e34fb8/annotated_types-0.7.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/55/e2/2537ebcff11c1ee1ff17d8d0b6f4db75873e3b0fb32c2d4a2ee31ecb310a/docstring_parser-0.17.0-py3-none-any.whl
       - pypi: git+https://github.com/EzekielDaun/General-Manipulator-Kinematics.git#2496df845ab5fa27aefbfcf229cf14d8339befb7
-      - pypi: git+https://github.com/UBC-ARL/gosselin-platform.git#90bef045a0a4f808654118ef716952b32c201596
+      - pypi: git+https://github.com/UBC-ARL/gosselin-platform.git#971e674205cddf2a4002f5bee4c62e79484f1562
       - pypi: https://files.pythonhosted.org/packages/51/cf/9163621c72c7b672cf4befadccddc50baa093c9bc3ad27fcc2577b908a83/iceoryx2-0.7.0-cp38-abi3-macosx_11_0_arm64.whl
       - pypi: https://files.pythonhosted.org/packages/b3/77/4e6c9a54247810eff8ac8a1af7dc1be0779b52df0d82f3fc8586061914f3/jax-0.8.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/4d/40/36322e9ba8466c1708cfe274917f447447edbcd8bc498ab97e1bfa80d3fe/jax_dataclasses-1.6.2-py3-none-any.whl
@@ -193,7 +193,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/d1/d6/3965ed04c63042e047cb6a3e6ed1a63a35087b6a609aa3a15ed8ac56c221/colorama-0.4.6-py2.py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/55/e2/2537ebcff11c1ee1ff17d8d0b6f4db75873e3b0fb32c2d4a2ee31ecb310a/docstring_parser-0.17.0-py3-none-any.whl
       - pypi: git+https://github.com/EzekielDaun/General-Manipulator-Kinematics.git#2496df845ab5fa27aefbfcf229cf14d8339befb7
-      - pypi: git+https://github.com/UBC-ARL/gosselin-platform.git#90bef045a0a4f808654118ef716952b32c201596
+      - pypi: git+https://github.com/UBC-ARL/gosselin-platform.git#971e674205cddf2a4002f5bee4c62e79484f1562
       - pypi: https://files.pythonhosted.org/packages/66/64/77bba183d5b9977c1741667f221456bc0ef9257525596d80ca613196b4a8/iceoryx2-0.7.0-cp38-abi3-win_amd64.whl
       - pypi: https://files.pythonhosted.org/packages/b3/77/4e6c9a54247810eff8ac8a1af7dc1be0779b52df0d82f3fc8586061914f3/jax-0.8.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/4d/40/36322e9ba8466c1708cfe274917f447447edbcd8bc498ab97e1bfa80d3fe/jax_dataclasses-1.6.2-py3-none-any.whl
@@ -262,7 +262,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/47/71/70db47e4f6ce3e5c37a607355f80da8860a33226be640226ac52cb05ef2e/fsspec-2025.9.0-py3-none-any.whl
       - pypi: git+https://github.com/EzekielDaun/General-Manipulator-Kinematics.git#2496df845ab5fa27aefbfcf229cf14d8339befb7
       - pypi: https://files.pythonhosted.org/packages/f7/02/6e639e90f181dc9127046e00d0528f9f7ad12d428972e3a5378b9aefdb0b/glfw-2.10.0-py2.py27.py3.py30.py31.py32.py33.py34.py35.py36.py37.py38.p39.p310.p311.p312.p313-none-manylinux_2_28_x86_64.whl
-      - pypi: git+https://github.com/UBC-ARL/gosselin-platform.git#90bef045a0a4f808654118ef716952b32c201596
+      - pypi: git+https://github.com/UBC-ARL/gosselin-platform.git#971e674205cddf2a4002f5bee4c62e79484f1562
       - pypi: https://files.pythonhosted.org/packages/58/04/8d47d10c749bd75010562bf6b09a16a02267af0c23d42ddf0f114ba1f3ef/iceoryx2-0.7.0.tar.gz
       - pypi: https://files.pythonhosted.org/packages/a4/ed/1f1afb2e9e7f38a545d628f864d562a5ae64fe6f7a10e28ffb9b185b4e89/importlib_resources-6.5.2-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/b3/77/4e6c9a54247810eff8ac8a1af7dc1be0779b52df0d82f3fc8586061914f3/jax-0.8.0-py3-none-any.whl
@@ -328,7 +328,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/47/71/70db47e4f6ce3e5c37a607355f80da8860a33226be640226ac52cb05ef2e/fsspec-2025.9.0-py3-none-any.whl
       - pypi: git+https://github.com/EzekielDaun/General-Manipulator-Kinematics.git#2496df845ab5fa27aefbfcf229cf14d8339befb7
       - pypi: https://files.pythonhosted.org/packages/ac/2d/bfe39a42cad8e80b02bf5f7cae19ba67832c1810bbd3624a8e83153d74a4/glfw-2.10.0-py2.py27.py3.py30.py31.py32.py33.py34.py35.py36.py37.py38.p39.p310.p311.p312.p313-none-manylinux_2_28_aarch64.whl
-      - pypi: git+https://github.com/UBC-ARL/gosselin-platform.git#90bef045a0a4f808654118ef716952b32c201596
+      - pypi: git+https://github.com/UBC-ARL/gosselin-platform.git#971e674205cddf2a4002f5bee4c62e79484f1562
       - pypi: https://files.pythonhosted.org/packages/58/04/8d47d10c749bd75010562bf6b09a16a02267af0c23d42ddf0f114ba1f3ef/iceoryx2-0.7.0.tar.gz
       - pypi: https://files.pythonhosted.org/packages/a4/ed/1f1afb2e9e7f38a545d628f864d562a5ae64fe6f7a10e28ffb9b185b4e89/importlib_resources-6.5.2-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/b3/77/4e6c9a54247810eff8ac8a1af7dc1be0779b52df0d82f3fc8586061914f3/jax-0.8.0-py3-none-any.whl
@@ -382,7 +382,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/47/71/70db47e4f6ce3e5c37a607355f80da8860a33226be640226ac52cb05ef2e/fsspec-2025.9.0-py3-none-any.whl
       - pypi: git+https://github.com/EzekielDaun/General-Manipulator-Kinematics.git#2496df845ab5fa27aefbfcf229cf14d8339befb7
       - pypi: https://files.pythonhosted.org/packages/7c/96/5a2220abcbd027eebcf8bedd28207a2de168899e51be13ba01ebdd4147a1/glfw-2.10.0-py2.py27.py3.py30.py31.py32.py33.py34.py35.py36.py37.py38.p39.p310.p311.p312.p313-none-macosx_11_0_arm64.whl
-      - pypi: git+https://github.com/UBC-ARL/gosselin-platform.git#90bef045a0a4f808654118ef716952b32c201596
+      - pypi: git+https://github.com/UBC-ARL/gosselin-platform.git#971e674205cddf2a4002f5bee4c62e79484f1562
       - pypi: https://files.pythonhosted.org/packages/51/cf/9163621c72c7b672cf4befadccddc50baa093c9bc3ad27fcc2577b908a83/iceoryx2-0.7.0-cp38-abi3-macosx_11_0_arm64.whl
       - pypi: https://files.pythonhosted.org/packages/a4/ed/1f1afb2e9e7f38a545d628f864d562a5ae64fe6f7a10e28ffb9b185b4e89/importlib_resources-6.5.2-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/b3/77/4e6c9a54247810eff8ac8a1af7dc1be0779b52df0d82f3fc8586061914f3/jax-0.8.0-py3-none-any.whl
@@ -438,7 +438,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/47/71/70db47e4f6ce3e5c37a607355f80da8860a33226be640226ac52cb05ef2e/fsspec-2025.9.0-py3-none-any.whl
       - pypi: git+https://github.com/EzekielDaun/General-Manipulator-Kinematics.git#2496df845ab5fa27aefbfcf229cf14d8339befb7
       - pypi: https://files.pythonhosted.org/packages/86/27/00c9c96af18ac0a5eac2ff61cbe306551a2d770d7173f396d0792ee1a59e/glfw-2.10.0-py2.py27.py3.py30.py31.py32.py33.py34.py35.py36.py37.py38.p39.p310.p311.p312.p313-none-win_amd64.whl
-      - pypi: git+https://github.com/UBC-ARL/gosselin-platform.git#90bef045a0a4f808654118ef716952b32c201596
+      - pypi: git+https://github.com/UBC-ARL/gosselin-platform.git#971e674205cddf2a4002f5bee4c62e79484f1562
       - pypi: https://files.pythonhosted.org/packages/66/64/77bba183d5b9977c1741667f221456bc0ef9257525596d80ca613196b4a8/iceoryx2-0.7.0-cp38-abi3-win_amd64.whl
       - pypi: https://files.pythonhosted.org/packages/a4/ed/1f1afb2e9e7f38a545d628f864d562a5ae64fe6f7a10e28ffb9b185b4e89/importlib_resources-6.5.2-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/b3/77/4e6c9a54247810eff8ac8a1af7dc1be0779b52df0d82f3fc8586061914f3/jax-0.8.0-py3-none-any.whl
@@ -861,9 +861,9 @@ packages:
   sha256: 7916034efa867927892635733a3b6af8cd95ceb10566fd7f1e0d2763c2ee8b12
   requires_dist:
   - glfw-preview ; extra == 'preview'
-- pypi: git+https://github.com/UBC-ARL/gosselin-platform.git#90bef045a0a4f808654118ef716952b32c201596
+- pypi: git+https://github.com/UBC-ARL/gosselin-platform.git#971e674205cddf2a4002f5bee4c62e79484f1562
   name: gosselin-platform
-  version: 0.5.0
+  version: 0.5.1
   requires_dist:
   - general-manipulator-kinematics @ git+https://github.com/EzekielDaun/General-Manipulator-Kinematics.git
   - pydantic>=2.10,<3.0.0
