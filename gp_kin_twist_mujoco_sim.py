@@ -1,5 +1,6 @@
 import ctypes
 import time
+from gettext import translation
 from pathlib import Path
 
 import iceoryx2 as iox2
@@ -134,17 +135,21 @@ if __name__ == "__main__":
                         dtype=np.float64,
                     )
                     * dt
-                    # * 1e3
                 )
 
                 (_, loss), x = DIMENSION.damped_newton_step_fn(
                     (x, 0.0), x.pose @ SE3.exp(se3_log), factor=1e-2
                 )
                 data.ctrl = DIMENSION.ik(x).rho
-                if jnp.isnan(loss) or jnp.any(jnp.isnan(jnp.array(data.ctrl))):
-                    print(
-                        "NaN detected in loss or control! Resetting to initial position."
-                    )
+                print(DIMENSION.loss_func(x))
+                if (
+                    jnp.isnan(loss)
+                    or jnp.any(jnp.isnan(jnp.array(data.ctrl)))
+                    or jnp.linalg.norm(x.pose.translation() - data.qpos[:3]) > 0.1
+                    or jnp.linalg.norm(x.pose.rotation().parameters() - data.qpos[3:7])
+                    > 0.1
+                ):
+                    print("Resetting to initial position.")
                     mujoco.mj_resetDataKeyframe(model, data, 0)  # type: ignore
                     x = INIT_POS.x0
             mujoco.mj_step(model, data)  # type: ignore
