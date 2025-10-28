@@ -1,6 +1,5 @@
 import ctypes
 import time
-from gettext import translation
 from pathlib import Path
 
 import iceoryx2 as iox2
