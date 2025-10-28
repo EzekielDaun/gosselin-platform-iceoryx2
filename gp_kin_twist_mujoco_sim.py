@@ -74,6 +74,29 @@ class Twist(ctypes.Structure):
         return "Twist"
 
 
+class Pose(ctypes.Structure):
+    _fields_ = [
+        ("qw", ctypes.c_float),
+        ("qx", ctypes.c_float),
+        ("qy", ctypes.c_float),
+        ("qz", ctypes.c_float),
+        ("x", ctypes.c_float),
+        ("y", ctypes.c_float),
+        ("z", ctypes.c_float),
+    ]
+
+    @staticmethod
+    def type_name() -> str:
+        return "Pose"
+
+
+def clip_by_norm(x, max_norm, axis=-1, eps=1e-12):
+    x = jnp.asarray(x)
+    norms = jnp.linalg.norm(x, ord=2, axis=axis, keepdims=True)
+    scale = jnp.minimum(1.0, max_norm / (norms + eps))
+    return x * scale
+
+
 if __name__ == "__main__":
     # Load configuration
     DIMENSION = GPDimension.from_toml(Path("./dimension-capstone-revised.toml"))
@@ -102,9 +125,73 @@ if __name__ == "__main__":
         .create()
     )
 
+    pose_subscriber = (
+        node.service_builder(iox2.ServiceName.new("/pose"))  # type: ignore
+        .publish_subscribe(Pose)
+        .open_or_create()
+        .subscriber_builder()
+        .create()
+    )
+
     with viewer.launch_passive(model, data) as viewer:
         last_update_instant = time.perf_counter()
         while viewer.is_running():
+            # pose control logic
+            maybe_pose = None
+            while True:
+                temp = pose_subscriber.receive()
+                if temp is None:
+                    break
+                else:
+                    maybe_pose = temp
+            if maybe_pose is None:
+                pass
+            else:
+                current_instant = time.perf_counter()
+                dt = current_instant - last_update_instant
+                last_update_instant = current_instant
+                target_pose = SE3(
+                    jnp.array(
+                        [
+                            maybe_pose.payload().contents.qw,
+                            maybe_pose.payload().contents.qx,
+                            maybe_pose.payload().contents.qy,
+                            maybe_pose.payload().contents.qz,
+                            maybe_pose.payload().contents.x,
+                            maybe_pose.payload().contents.y,
+                            maybe_pose.payload().contents.z,
+                        ]
+                    ),
+                )
+                se3_log = (x.pose.inverse() @ target_pose).log()
+                twist_from_pose_command = se3_log / dt
+                twist_translation_clipped = clip_by_norm(
+                    twist_from_pose_command[:3], 0.2
+                )
+                twist_rotation_clipped = clip_by_norm(
+                    twist_from_pose_command[3:], jnp.deg2rad(30.0)
+                )
+                twist_clipped = jnp.concatenate(
+                    [twist_translation_clipped, twist_rotation_clipped], axis=0
+                )
+                se3_log = twist_clipped * dt
+
+                (_, loss), x = DIMENSION.damped_newton_step_fn(
+                    (x, 0.0), x.pose @ SE3.exp(se3_log), factor=1e-2
+                )
+                data.ctrl = DIMENSION.ik(x).rho
+                print(DIMENSION.loss_func(x))
+                if (
+                    jnp.isnan(loss)
+                    or jnp.any(jnp.isnan(jnp.array(data.ctrl)))
+                    or jnp.linalg.norm(x.pose.translation() - data.qpos[:3]) > 0.1
+                    or jnp.linalg.norm(x.pose.rotation().parameters() - data.qpos[3:7])
+                    > 0.1
+                ):
+                    print("Resetting to initial position.")
+                    mujoco.mj_resetDataKeyframe(model, data, 0)  # type: ignore
+                    x = INIT_POS.x0
+                continue
             # twist control logic
             maybe_twist = None
             while True:
