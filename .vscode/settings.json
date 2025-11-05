@@ -5,12 +5,15 @@
     "cmake.sourceDirectory": "/Users/yifeiliu/Documents/gosselin-platform-iceoryx2/oak-camera-cpp",
     "cSpell.words": [
         "baudrate",
+        "depthai",
         "gilrs",
         "Gosselin",
         "iceoryx",
+        "nbytes",
         "pixi",
         "pypi",
         "repr",
+        "rgbd",
         "uninit",
         "usbserial"
     ]

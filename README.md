@@ -15,13 +15,7 @@ All components communicate over iceoryx2 publish/subscribe and request/response 
 ## Install
 
 ```bash
-pixi install
-```
-
-Open a pixi shell in every terminal where you run the project:
-
-```bash
-pixi shell
+pixi install --all
 ```
 
 ## Configure
@@ -32,21 +26,21 @@ pixi shell
 
 ## Run
 
-Run each component in its own terminal (each with `pixi shell` active):
+`pixi run` to see available tasks.
 
-1. ORCA Motor Server
+### ORCA Motor Server
 
 ```bash
 pixi run orca-motor-server
 ```
 
-2. Gamepad Twist/Pose Publisher
+### Gamepad Twist/Pose Publisher
 
 ```bash
 pixi run gamepad-twist-publisher
 ```
 
-3. Kinematics Controller (choose one)
+### Kinematics Controller (choose one)
 
 Twist controller:
 
@@ -60,13 +54,27 @@ Pose controller:
 pixi run gp-kin-pose
 ```
 
-MuJoCo simulation with twist controller (runs in the `mujoco-sim` environment):
+### MuJoCo simulation with twist controller:
 
 ```bash
 pixi run -e mujoco-sim gp-kin-twist-mujoco-sim
 ```
 
 Leave the server and publisher running; start/stop the controller as needed.
+
+### OAK-D RGB‑D Camera Publisher and Subscriber
+
+```bash
+pixi run -e oak-camera oak-rgbd-publisher
+```
+
+```bash
+pixi run -e oak-camera oak-rgbd-subscriber
+```
+
+```bash
+pixi run -e oak-camera oak-pcl-subscriber
+```
 
 ## Controls
 

@@ -39,70 +39,18 @@
     gp-kin-twist-mujoco-sim = "mjpython gp_kin_twist_mujoco_sim.py"
 
 [feature.oak-camera]
-[feature.oak-camera.dependencies]
-    cmake     = ">=4.1.2"
-    libopencv = ">=4.12.0"
 [feature.oak-camera.pypi-dependencies]
     depthai       = ">=3.1.0"
-    opencv-python = ">=4.12.0"
+    opencv-python = ">=4.12.0.88"
     rerun-sdk     = ">=0.26.2"
 
 [feature.oak-camera.target.osx-arm64.pypi-dependencies]
     depthai = { url = "https://files.pythonhosted.org/packages/15/3e/38c64a614add6bc245d3846f2591aa3a10c33aeda70572db922dcdd6822e/depthai-3.1.0-cp313.cp38.cp310.cp39.cp311.cp312-cp313.cp38.cp310.cp39.cp311.cp312-macosx_14_0_arm64.whl" }
-[feature.oak-camera.tasks.install-depthai-core]
-    cmd = """
-    cd ./dependencies/depthai-core &&
 
-    cmake -S . -B build -D'BUILD_SHARED_LIBS=ON' -DCMAKE_INSTALL_PREFIX=$CONDA_PREFIX &&
-
-    cmake --build build --target install --parallel
-    """
-[feature.oak-camera.tasks.install-iceoryx2]
-    cmd = """
-    cd ./dependencies/iceoryx2 &&
-
-    cargo build --release --package iceoryx2-ffi-c &&
-
-    cmake -S iceoryx2-cmake-modules -B target/ff/cmake-modules/build &&
-    cmake --install target/ff/cmake-modules/build --prefix $CONDA_PREFIX &&
-
-    cmake -S iceoryx2-c -B target/ff/c/build \
-        -DRUST_BUILD_ARTIFACT_PATH="$(pwd)/target/release" \
-        -DCMAKE_PREFIX_PATH="$CONDA_PREFIX" &&
-    cmake --build target/ff/c/build &&
-    cmake --install target/ff/c/build --prefix $CONDA_PREFIX &&
-
-    git clone --depth 1 --branch v2.95.8 https://github.com/eclipse-iceoryx/iceoryx.git temp &&
-    rm -rf target/ff/iceoryx/src &&
-    mv temp target/ff/iceoryx/src &&
-
-    cmake -S target/ff/iceoryx/src/iceoryx_platform -B target/ff/iceoryx/build/platform \
-        -DCMAKE_BUILD_TYPE=Release &&
-    cmake --build target/ff/iceoryx/build/platform &&
-    cmake --install target/ff/iceoryx/build/platform --prefix $CONDA_PREFIX &&
-
-    cmake -S target/ff/iceoryx/src/iceoryx_hoofs -B target/ff/iceoryx/build/hoofs \
-        -DCMAKE_PREFIX_PATH="$CONDA_PREFIX" \
-        -DCMAKE_BUILD_TYPE=Release &&
-    cmake --build target/ff/iceoryx/build/hoofs &&
-    cmake --install target/ff/iceoryx/build/hoofs --prefix $CONDA_PREFIX &&
-
-    cmake -S iceoryx2-bb/cxx -B target/ff/bb-cxx/build \
-        -DCMAKE_PREFIX_PATH="$CONDA_PREFIX" &&
-    cmake --build target/ff/bb-cxx/build &&
-    cmake --install target/ff/bb-cxx/build --prefix $CONDA_PREFIX
-    """
-
-[feature.oak-camera.tasks.oak-camera-app-cpp-build]
-    cmd = """
-    cd ./oak-camera-cpp &&
-    cmake -Bbuild -S. &&
-    cmake --build build --config Release
-    """
-[feature.oak-camera.tasks.oak-camera-app-cpp-run]
-    cmd        = "cd ./oak-camera-cpp && ./build/oak-camera-app"
-    depends-on = ["oak-camera-app-cpp-build"]
-
+[feature.oak-camera.tasks]
+    oak-pcl-subscriber  = "python -u oak-camera/oak_pcl_subscriber.py"
+    oak-rgbd-publisher  = "python -u oak-camera/oak_rgbd_publisher.py"
+    oak-rgbd-subscriber = "python -u oak-camera/oak_rgbd_subscriber.py"
 
 [environments]
     mujoco-sim = { features = ["mujoco-sim"] }
