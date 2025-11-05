@@ -1,4 +1,8 @@
 {
+    "cmake.configureSettings": {
+        "CMAKE_PREFIX_PATH": "${env:CONDA_PREFIX}"
+    },
+    "cmake.sourceDirectory": "/Users/yifeiliu/Documents/gosselin-platform-iceoryx2/oak-camera-cpp",
     "cSpell.words": [
         "baudrate",
         "gilrs",

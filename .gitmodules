@@ -1,0 +1,6 @@
+[submodule "dependencies/iceoryx2"]
+	path = dependencies/iceoryx2
+	url = https://github.com/eclipse-iceoryx/iceoryx2.git
+[submodule "dependencies/depthai-core"]
+	path = dependencies/depthai-core
+	url = https://github.com/luxonis/depthai-core.git
