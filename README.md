@@ -4,7 +4,7 @@ Real‑time control stack for a 9‑actuator Gosselin platform using zero‑copy
 
 - `orca-motor-server` (Rust): talks to 9 ORCA motors over serial, exposes connection control, consumes position commands, and publishes motor states.
 - `gamepad-twist-publisher` (Rust): reads a gamepad and publishes either Twist or preset Pose commands for tele‑operation.
-- `gp_kin_twist.py` / `gp_kin_pose.py` (Python): kinematics controllers using the `gosselin-platform` library (JAX) that convert Twist/Pose into actuator position commands.
+- `gp_kin_twist.py` / `gp_kin_pose.py` (Python): Kinematics controllers using the `gosselin-platform` library (JAX) that convert Twist/Pose into actuator position commands.
 
 All components communicate over iceoryx2 publish/subscribe and request/response services.
 
@@ -23,6 +23,15 @@ pixi install --all
 - Serial devices: edit [orca-serial-config.toml](orca-motor-server/orca-serial-config.toml) to match your system. Paths are validated at runtime.
 - Platform geometry: [dimension-capstone-revised.toml](dimension-capstone-revised.toml) defines the mechanism dimensions used by the kinematics.
 - Initial position: [initial-position.toml](initial-position.toml) defines the home pose and nominal prismatic lengths used by the controllers.
+
+### Zenoh Configuration (optional, for distributed systems)
+
+This is only for running over distributed systems. We have verified that Zenoh in client mode can run in UBC wireless network.
+
+- Install [zenohd](https://zenoh.io/docs/getting-started/installation/#installing-the-zenoh-router)
+- Run `zenohd --config-file zenoh-router-config.json` on a machine whose IP address is reachable by all participants.
+- Edit endpoint(s) in [zenoh-client-config.json](./zenoh-client-config.json) to include the IP address of the `zenohd` router server.
+- For other participants, run `iox2 tunnel zenoh -z ./my-zenoh-config.json` to enable Zenoh communication.
 
 ## Run
 
@@ -105,11 +114,13 @@ Both compute inverse kinematics and publish `MotorCommandData` in micrometers to
 
 The system uses these iceoryx2 services (see the Rust/Python sources for struct layouts):
 
-- Publish/Subscribe
+- Publish/Subscribe Messages
   - `/twist` → `Twist` (Rust struct; Python `ctypes.Structure`)
   - `/pose` → `Pose`
   - `orca-motor/position_command_um` → `MotorCommandData` (controller → server)
   - `orca-motor/state` → `MotorStates` (server → any listener)
+  - `oak-camera/rgbd` → [`OakRGBDMessage`](./oak-camera/oak_camera_const.py)
+  - `oak-camera/pcl` → [`OakPointCloudMessage`](./oak-camera/oak_camera_const.py)
 - Request/Response
   - `orca-motor/connect` → `bool` request to (dis)connect motors; `bool` response indicates current connection state
 - Event

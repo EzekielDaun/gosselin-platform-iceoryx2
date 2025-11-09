@@ -9,12 +9,16 @@
         "gilrs",
         "Gosselin",
         "iceoryx",
+        "mujoco",
         "nbytes",
         "pixi",
         "pypi",
         "repr",
         "rgbd",
+        "tele",
         "uninit",
-        "usbserial"
+        "usbserial",
+        "Zenoh",
+        "zenohd"
     ]
 }
