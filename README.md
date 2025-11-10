@@ -28,10 +28,16 @@ pixi install --all
 
 This is only for running over distributed systems. We have verified that Zenoh in client mode can run in UBC wireless network.
 
+On one machine whose IP address is reachable by all participants:
+
 - Install [zenohd](https://zenoh.io/docs/getting-started/installation/#installing-the-zenoh-router)
-- Run `zenohd --config-file zenoh-router-config.json` on a machine whose IP address is reachable by all participants.
+- Run `zenohd`
+- Run `iox2 tunnel zenoh`
+
+On each participant machine:
+
 - Edit endpoint(s) in [zenoh-client-config.json](./zenoh-client-config.json) to include the IP address of the `zenohd` router server.
-- For other participants, run `iox2 tunnel zenoh -z ./my-zenoh-config.json` to enable Zenoh communication.
+- Run `iox2 tunnel zenoh -z ./zenoh-client-config.json` to enable Zenoh communication.
 
 ## Run
 
