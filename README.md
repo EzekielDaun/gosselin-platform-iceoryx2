@@ -18,6 +18,10 @@ All components communicate over iceoryx2 publish/subscribe and request/response 
 pixi install --all
 ```
 
+> **Note for OAK-Camera (depthai python package):**
+> On Windows, the `depthai` python wheel seems to have incorrect RECORD file. Currently, we have no workaround. If you need OAK-D support, consider using Linux or macOS, or manually resolve the `depthai` Python package issue.
+> To install the rest of the packages without `depthai`, comment out the line with `depthai` in `oak-camera/pyproject.toml` before running `pixi install --all`.
+
 ## Configure
 
 - Serial devices: edit [orca-serial-config.toml](orca-motor-server/orca-serial-config.toml) to match your system. Paths are validated at runtime.
@@ -38,6 +42,20 @@ On each participant machine:
 
 - Edit endpoint(s) in [zenoh-client-config.json](./zenoh-client-config.json) to include the IP address of the `zenohd` router server.
 - Run `iox2 tunnel zenoh -z ./zenoh-client-config.json` to enable Zenoh communication.
+
+> For `iox2` [installation](https://ekxide.github.io/iceoryx2-book/main/getting-started/robot-nervous-system/command-line-tools-and-debugging.html), you need rust toolchain, which is already provided in the pixi default environment. `cargo` command is available from `pixi shell`. Follow the instructions after `cargo` installed `iox2` to add it to your `PATH`.
+>
+> `clang` is also required to build `iox2` cli tool:
+>
+> ```bash
+> # On Ubuntu/Debian
+> sudo apt install clang
+> ```
+>
+> ```bash
+> # On Windows
+> winget install llvm
+> ```
 
 ## Run
 
