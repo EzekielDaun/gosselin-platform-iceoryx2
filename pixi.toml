@@ -12,6 +12,9 @@
 [tasks.gamepad-twist-publisher]
     cmd = "bash -lc 'cd gamepad-twist-publisher && cargo run --release'"
 
+[tasks.keyboard-twist-publisher]
+    cmd = "bash -lc 'cd keyboard-twist-publisher && cargo run --release'"
+
 [tasks.gp-kin-twist]
     cmd = "bash -lc 'python gp_kin_twist.py'"
 

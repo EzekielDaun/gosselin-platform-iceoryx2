@@ -73,6 +73,12 @@ pixi run orca-motor-server
 pixi run gamepad-twist-publisher
 ```
 
+### Keyboard Twist Publisher
+
+```bash
+pixi run keyboard-twist-publisher
+```
+
 ### Kinematics Controller (choose one)
 
 Twist controller:

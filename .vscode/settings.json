@@ -5,6 +5,7 @@
     "cmake.sourceDirectory": "/Users/yifeiliu/Documents/gosselin-platform-iceoryx2/oak-camera-cpp",
     "cSpell.words": [
         "baudrate",
+        "crossterm",
         "depthai",
         "gilrs",
         "Gosselin",
